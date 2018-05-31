@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "geocoder": {
+            "matchCondition": {
+                "route": "/api/geocode",
+                "methods": [
+                    "GET"
+                ]
+            },
+            "backendUri": "%HEREAPI%",
+            "requestOverrides": {
+                "backend.request.querystring.app_id": "%APPID%",
+                "backend.request.querystring.app_code": "%APPCODE%",
+                "backend.request.querystring.searchtext": "{request.querystring.searchtext}"
+            }
+        }
+    }
+}
