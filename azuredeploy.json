@@ -46,7 +46,8 @@
         "storageName": "[concat(parameters('name'), uniqueString(resourceGroup().id))]",
         "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageName'))]",
         "planName": "[concat(parameters('name'), uniqueString(resourceGroup().id))]",
-        "webName": "[concat(parameters('name'),uniqueString(resourceGroup().id))]"
+        "webName": "[concat(parameters('name'),uniqueString(resourceGroup().id))]",
+        "HEREAPI":"https://geocoder.cit.api.here.com/6.2/geocode.json"
     },
     "resources": [{
             "type": "Microsoft.Storage/storageAccounts",
@@ -102,6 +103,10 @@
                         {
                             "name": "APPID",
                             "value": "[parameters('AppId')]"
+                        },
+                        {
+                            "name":"HEREAPI",
+                            "value":"[variables('HEREAPI')]"
                         }
                     ]
                 }
